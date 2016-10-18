@@ -20,4 +20,8 @@ public class Bike extends Vehicle{
 	public int getSpokes() { return this._numberOfSpokes; }
 	public int getSeatHeight() {return this._seatHeight; }
 	
+	//setter
+	public void setNumberOfSpokes(int numberOfSpokes) {this._numberOfSpokes = numberOfSpokes;}
+	public void setSeatHeight (int seatHeight) {this._seatHeight = seatHeight;}
+	
 }
