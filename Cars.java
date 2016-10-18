@@ -1,5 +1,3 @@
-//still dont have brake and accelerate working, made by jess and craig 
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +14,10 @@ public class Cars {
 		int maximumSpeed = 0;
 		int numberOfTires = 0;
 		
+		int seatHeight;
+		int numberOfSpokes;
+		
+		int liftHeight;
 		
 		int accelerateAmount;
 		int brakePressure;
@@ -40,11 +42,17 @@ public class Cars {
 			    
 			    System.out.println("Enter a number of tires for vehicle # " + (counter + 1) + ".");
 			    numberOfTires = Integer.parseInt(br.readLine());
-		    	//havent addded new parameters to pass in yet number of spokes and seatheight
-			    Bike currentBike = new Bike(colour, numberOfTires);
+			    
+			    System.out.println("Enter a number of spokes for vehicle # " + (counter + 1) + ".");
+			    numberOfSpokes = Integer.parseInt(br.readLine());
+			    
+			    System.out.println("Enter a seat height for vehicle # " + (counter + 1) + ".");
+			    seatHeight = Integer.parseInt(br.readLine());
+			    
+			    Bike currentBike = new Bike(colour, numberOfTires, numberOfSpokes, seatHeight);
 
 			    System.out.println("You just created an instance of class 'Bike' with: ");
-			    System.out.println("Colour " + currentBike.getColour() + ", and " + currentBike.getTires() + " tires." );
+			    System.out.println("Colour " + currentBike.getColour() + ", and " + currentBike.getTires() + " tires, and " + currentBike.getSpokes() + " spokes, and a seat height of " + currentBike.getSeatHeight());
 			    
 		    } else if (userChoice.equals("T")) {
 		    	
@@ -59,13 +67,22 @@ public class Cars {
 			    
 			    System.out.println("Enter a number of tires for vehicle # " + (counter + 1) + ".");
 			    numberOfTires = Integer.parseInt(br.readLine());
-		    	//this doesnt work because havent added cylinders and liftheight yet
-			    Truck currentTruck = new Truck (licensePlate, colour, numberOfDoors, numberOfTires); 
+			    
+			    System.out.println("Enter a lift height for vehicle # " + (counter + 1) + ".");
+			    liftHeight = Integer.parseInt(br.readLine());
+		    	
+			    Truck currentTruck = new Truck (licensePlate, colour, numberOfDoors, numberOfTires, liftHeight, 8); //8 cylinders automatically cause trucks are awesome
 			    
 			    System.out.println("You just created an instance of class 'Truck' with: ");
-			    System.out.println("Colour " + currentTruck.getColour() + ", Licesnse Plate " + currentTruck.getLicensePlate() + ", " + currentTruck.getNumberOfDoors() + " doors, and " + currentTruck.getTires() + " tires." );
+			    System.out.println("Colour " + currentTruck.getColour() + ", Licesnse Plate " + currentTruck.getLicensePlate() + ", " + currentTruck.getNumberOfDoors() + " doors, and " + currentTruck.getTires() + " tires, and " + currentTruck.getLiftHeight() + "cm lift height with 8 cylinders");
 			    
-		    } else {
+		    } else if (userChoice.equals("V")) {
+		    	//mr coxall wanted us to make this error to show that we can't instantiate an abstract
+		    	Vehicle vehicle = new Vehicle();
+		    	//i have ants in my pants
+		    }
+		    
+		    else {
 		    	
 		    	System.out.println("Please enter a valid input: either 'B' or 'T'.");
 		    	
