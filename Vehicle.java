@@ -1,5 +1,5 @@
 
-public class Vehicle {
+public abstract class Vehicle {
 
 	public String _licensePlate;
 	public String _colour;
